@@ -4,7 +4,7 @@ const customisation = require('../customisation.json');
 exports.run = async(client, msg, args) => {
   let embed = new Discord.RichEmbed()
   .setColor('RANDOM')
-  .setAuthor('HELP COMMANDS - TheanBotSpport', "https://cdn.discordapp.com/attachments/773483518307205120/801081815934042112/T_paper.jpg")
+  .setAuthor('HELP COMMANDS - TheanBotSpport', "https://discord.com/api/oauth2/authorize?client_id=797721071788490802&permissions=0&scope=bot")
   .setDescription('If commands not working usage s!bug [report]')
   .addField(':smiley: Fun', '`hug`, `kiss`, `kill`, `slap`, `panda`, `rip`, `meter`, `saitama`, `hack`, `meme`, `rabbit`, `anime`, `cat`, `dog`, `marry`, `smoke`, `vote`, `votekick`, `joke`, `icon`, `what`, `bad`, `stonks`')
   .addField(':gear: General/Info', '`timer`, `ping`, `channelinfo`, `topinvite`, `botinfo`, `serverinfo`, `userinfo`, `serverinvite`, `guild`, `rolelist`, `level`, `avatar`')
