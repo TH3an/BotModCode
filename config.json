@@ -1,10 +1,7 @@
 {
  "prefix": "t!",
  "owner_id": "597271012979113984",
-  "QUEUE_LIMIT": 10,
   "COLOR": "RANDOM",
-  "coin": "Yatogami Coins", 
-  "coin_icon": "$",
   "red": "#b70000",
   "orange": "#ff6a00",
   "green": "#00ff26",
