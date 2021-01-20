@@ -1,6 +1,6 @@
 const Discord = module.require("discord.js");
 const Canvas = require("canvas");
-const config = require("./config.json");
+const config = require("../config.json");
 
 module.exports.run = async (client, message, args) => {
     if (message.author.id !== `${config.owner_id}`) return message.channel.sendMessage("This command is only for bot creator!");
