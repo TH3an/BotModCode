@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const config = require("../config.json")
 
 exports.run = async(client, message, args) => {
   
@@ -18,18 +19,18 @@ exports.run = async(client, message, args) => {
   .setColor('RANDOM')
   .setDescription(`🔪 Kill you`)
   .setImage(rando_kill_imgs[Math.floor(Math.random() * rando_kill_imgs.length)])
-  .setFooter("Have image to submit? Send it to ʜᴍ-ᴠᴜᴛʜ#4416!")
+  .setFooter(`Have image to submit? Send it to ${config.owner_name}!`)
   message.channel.send(embed).then(msg => {
     msg.react('🔪')});;
   }
   
-  else if(user.id === '627717611853185026')
+  else if(user.id === `${config.owner_id}`)
   {
     let embed = new Discord.RichEmbed()
   .setColor('RANDOM')
   .setDescription(`🔪 Kill you`)
   .setImage(rando_kill_imgs[Math.floor(Math.random() * rando_kill_imgs.length)])
-  .setFooter("Have image to submit? Send it to ʜᴍ-ᴠᴜᴛʜ#4416!")
+  .setFooter(`Have image to submit? Send it to ${config.owner_name}!`)
   message.channel.send(embed).then(msg => {
     msg.react('🔪')});;
   }
@@ -40,7 +41,7 @@ exports.run = async(client, message, args) => {
   .setColor('RANDOM')
   .setDescription(`🔪 ${user.username}#${user.discriminator}, ${act}${message.author.tag}`)
   .setImage(rando_kill_imgs[Math.floor(Math.random() * rando_kill_imgs.length)])
-  .setFooter("Have image to submit? Send it to ʜᴍ-ᴠᴜᴛʜ#4416!!")
+  .setFooter(`Have image to submit? Send it to ${config.owner_name}!`)
   message.channel.send(embed).then(msg => {
     msg.react('🔪')});;
   }
