@@ -1,10 +1,12 @@
 [
  {
  "text": "Support our bot!",
- "type": "WATCHING" 
+ "type": "STREAMER" ,
+ "url": "https://www.twitch.tv/th3angm"
 }, 
 {
  "text": "Made in Cambodia 🇰🇭", 
- "type": "WATCHING" 
+ "type": "STREAMER",
+ "url": "https://www.twitch.tv/th3angm"
 }
 ]
