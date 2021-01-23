@@ -7,7 +7,7 @@ const activities = require("../database/status.json");
 
 client.setInterval(() => {
     const activity = activities[Math.floor(Math.random() * activities.length)];
-    client.user.setActivity(`${client.guilds.size}`, {
+    client.user.setActivity(`${client.guilds.size} server`, {
       status: 'online',
       name: 'Bot bek sloy zin',
       type: activity.type,
