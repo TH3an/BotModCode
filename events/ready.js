@@ -1,7 +1,7 @@
 const config = require("../config.json");
 
 module.exports = (client) => {
-  console.log(`Ready to serve in ${client.channels.size} channels on ${client.guilds.size} servers, for a total of ${client.users.size} users.`);
+  console.log(`Ready to server in ${client.channels.size} channels on ${client.guilds.size} servers, for a total of ${client.users.size} users.`);
 
 const activities = require("../database/status.json");
   const random = [`on ${client.guilds.size} Servers`, `${client.channels.size} Channels`, `${client.users.size} users`];
