@@ -2,7 +2,7 @@ const customisation = require('../customisation.json');
 const Discord = require('discord.js');
 
 exports.run = (client, message, args) => {
-     if (message.author.id !== '627717611853185026') return message.channel.sendMessage("<:WrongMark:552116790981951511> This command is only for bot creator!");
+     if (message.author.id !== '597271012979113984') return message.channel.sendMessage("<:WrongMark:552116790981951511> This command is only for bot creator!");
     if (!args[0]) return message.reply("Please specify the update. Example:\n`s!update  punch commands`");
     if (args[0] === "update") return message.reply("Please specify the update. Example:\n`s!update  punch commands`");
     args = args.join(" ");
