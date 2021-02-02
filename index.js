@@ -10,6 +10,11 @@ const config = require("./config.json");
 // We also need to make sure we're attaching the config to the CLIENT so it's accessible everywhere!
 client.config = config;
 
+client.distube = new DisTube(client, { searchSongs: true, emitNewSongOnly: true, leaveOnFinish: true })
+client.commands = new Discord.Collection()
+client.aliases = new Discord.Collection()
+client.emotes = config.emoji;
+
 fs.readdir("./events/", (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
