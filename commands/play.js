@@ -4,7 +4,7 @@ module.exports = {
     name: "play",
     aliases: ["p"],
     run: async (client, message, args) => {
-        if (!message.member.voice.channel) return message.channel.send(`${client.emotes.error} | You must be in a voice channel!`)
+        if (!message.member.voiceChannel) return message.channel.send(`${client.emotes.error} | You must be in a voice channel!`)
         let string = args.join(" ")
         if (!string) return message.channel.send(`${client.emotes.error} | Please enter a song url or query to search.`)
         try {
