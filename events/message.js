@@ -16,5 +16,10 @@ module.exports = (client, message) => {
   if (!cmd) return;
 
   // Run the command
+  if (cmd) {
   cmd.run(client, message, args);
+    
+    console.log(`${message.author.name} used ${command} command`)
+    client.channels.get('803131497401155584').send(`${message.author.name} used ${command} command`)
+  }
 };
