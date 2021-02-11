@@ -8,7 +8,7 @@ const activities = require("../database/status.json");
   const random = [
                   `Watchings ${client.users.size} Users!`,
                   `in ${client.channels.size} Channels!`,
-                  `on ${client.guilds.size} Servers!`
+                  `${client.guilds.size} servers`
                  ];
   
  client.setInterval(() => {
