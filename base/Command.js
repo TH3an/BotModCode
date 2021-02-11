@@ -4,7 +4,7 @@ class Command {
     name = null,
     description = "No description provided.",
     category = "Miscellaneous",
-    usage = "s!.",
+    usage = "*.",
     enabled = true,
     guildOnly = false,
     aliases = new Array(),
