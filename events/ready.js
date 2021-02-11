@@ -2,13 +2,12 @@ const config = require("../config.json");
 
 module.exports = (client) => {
   console.log(`Ready to server in ${client.channels.size} channels on ${client.guilds.size} servers, for a total of ${client.users.size} users.`);
-  client.channels.get('763697490796609567').send('*Hello!*')
 
 const activities = require("../database/status.json");
   const random = [
                   `Watchings ${client.users.size} Users!`,
-                  `${client.guilds.size} servers`,
-                  `in ${client.channels.size} Channels!`
+                  `in ${client.channels.size} Channels!`,
+                  `On ${client.guilds.size} servers!`
                  ];
   
  client.setInterval(() => {
