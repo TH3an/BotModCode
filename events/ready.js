@@ -7,8 +7,8 @@ module.exports = (client) => {
 const activities = require("../database/status.json");
   const random = [
                   `Watchings ${client.users.size} Users!`,
-                  `in ${client.channels.size} Channels!`,
-                  `${client.guilds.size} servers`
+                  `${client.guilds.size} servers`,
+                  `in ${client.channels.size} Channels!`
                  ];
   
  client.setInterval(() => {
