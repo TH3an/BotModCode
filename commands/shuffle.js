@@ -1,8 +1,8 @@
 module.exports = {
-    name: 'stop',
-    aliases: ['dc'],
+    name: 'shuffle',
+    aliases: ['sh'],
     category: 'Music',
-    utilisation: '{prefix}stop',
+    utilisation: '{prefix}shuffle',
 
     execute(client, message) {
         if (!message.member.voice.channel) return message.channel.send(`${client.emotes.error} - You're not in a voice channel !`);
@@ -11,9 +11,8 @@ module.exports = {
 
         if (!client.player.getQueue(message)) return message.channel.send(`${client.emotes.error} - No music currently playing !`);
 
-        client.player.setRepeatMode(message, false);
-        client.player.stop(message);
+        client.player.shuffle(message);
 
-        message.channel.send(`${client.emotes.success} - Music **stopped** into this server !`);
+        return message.channel.send(`${client.emotes.success} - Queue shuffled **${client.player.getQueue(message).tracks.length}** song(s) !`);
     },
 };

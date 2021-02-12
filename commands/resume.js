@@ -1,8 +1,8 @@
 module.exports = {
-    name: 'stop',
-    aliases: ['dc'],
+    name: 'resume',
+    aliases: [],
     category: 'Music',
-    utilisation: '{prefix}stop',
+    utilisation: '{prefix}resume',
 
     execute(client, message) {
         if (!message.member.voice.channel) return message.channel.send(`${client.emotes.error} - You're not in a voice channel !`);
@@ -11,9 +11,10 @@ module.exports = {
 
         if (!client.player.getQueue(message)) return message.channel.send(`${client.emotes.error} - No music currently playing !`);
 
-        client.player.setRepeatMode(message, false);
-        client.player.stop(message);
+        if (!client.player.getQueue(message).paused) return message.channel.send(`${client.emotes.error} - The music is already playing !`);
 
-        message.channel.send(`${client.emotes.success} - Music **stopped** into this server !`);
+        client.player.resume(message);
+
+        message.channel.send(`${client.emotes.success} - Song ${client.player.getQueue(message).playing.title} resumed !`);
     },
 };
