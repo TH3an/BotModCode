@@ -5,10 +5,6 @@ const fs = require("fs");
 const leveling = require('discord-leveling');
 const db = require('quick.db');
 
-const client = new discord.Client({ disableMentions: 'everyone' });
-
-const { Player } = require('discord-player');
-
 const client = new Discord.Client();
 const config = require("./config.json");
 // We also need to make sure we're attaching the config to the CLIENT so it's accessible everywhere!
