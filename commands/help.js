@@ -1,19 +1,48 @@
-const Discord = require("discord.js");
-const customisation = require('../customisation.json');
+module.exports = {
+    name: 'help',
+    aliases: ['h'],
+    category: 'Core',
+    utilisation: '{prefix}help <command name>',
 
-exports.run = async(client, msg, args) => {
-  let embed = new Discord.RichEmbed()
-  .setColor('RANDOM')
-  .setAuthor('HELP COMMANDS - TheanBotSpport', client.user.displayAvatarUrl)
-  .setDescription('If commands not working usage *bug [report]')
-  .addField(':smiley: Fun', '`hug`, `kiss`, `kill`, `slap`, `panda`, `rip`, `meter`, `saitama`, `hack`, `meme`, `rabbit`, `anime`, `cat`, `dog`, `marry`, `smoke`, `vote`, `votekick`, `joke`, `icon`, `what`, `bad`, `stonks`, `balance`')
-  .addField(':gear: General/Info', '`timer`, `ping`, `channelinfo`, `topinvite`, `botinfo`, `serverinfo`, `userinfo`, `serverinvite`, `guild`, `rolelist`, `level`, `avatar`')
-  .addField(':cop: Moderative', '`kick`, `ban`, `unban`, `mute`, `unmute`, `addrole`, `removerole`, `say`, `leave`')
-  .addField(':pray: Support', '`invite`')
-  .setFooter(`© Cryptonix X Mod Bot by ${customisation.ownername}`);
-msg.channel.send(embed);
-  
-  
+    execute(client, message, args) {
+        if (!args[0]) {
+            const infos = message.client.commands.filter(x => x.category == 'Infos').map((x) => '`' + x.name + '`').join(', ');
+            const music = message.client.commands.filter(x => x.category == 'Music').map((x) => '`' + x.name + '`').join(', ');
+
+            message.channel.send({
+                embed: {
+                    color: 'ORANGE',
+                    author: { name: 'Help pannel' },
+                    footer: { text: 'This bot uses a Github project made by Zerio (ZerioDev/Music-bot)' },
+                    fields: [
+                        { name: 'Bot', value: infos },
+                        { name: 'Music', value: music },
+                        { name: 'Filters', value: client.filters.map((x) => '`' + x + '`').join(', ') },
+                    ],
+                    timestamp: new Date(),
+                    description: `To use filters, ${client.config.discord.prefix}filter (the filter). Example : ${client.config.discord.prefix}filter 8D.`,
+                },
+            });
+        } else {
+            const command = message.client.commands.get(args.join(" ").toLowerCase()) || message.client.commands.find(x => x.aliases && x.aliases.includes(args.join(" ").toLowerCase()));
+
+            if (!command) return message.channel.send(`${client.emotes.error} - I did not find this command !`);
+
+            message.channel.send({
+                embed: {
+                    color: 'ORANGE',
+                    author: { name: 'Help pannel' },
+                    footer: { text: 'This bot uses a Github project made by Zerio (ZerioDev/Music-bot)' },
+                    fields: [
+                        { name: 'Name', value: command.name, inline: true },
+                        { name: 'Category', value: command.category, inline: true },
+                        { name: 'Aliase(s)', value: command.aliases.length < 1 ? 'None' : command.aliases.join(', '), inline: true },
+                        { name: 'Utilisation', value: command.utilisation.replace('{prefix}', client.config.discord.prefix), inline: true },
+                    ],
+                    timestamp: new Date(),
+                    description: 'Find information on the command provided.\nMandatory arguments `[]`, optional arguments `<>`.',
+                }
+            });
+        };
+    },
 };
-
-//loop, lyrics, nowplaying, pause, play, playlist, pruning, queue, remove, resume, search, shuffle, skip, skipto, stop, volume
