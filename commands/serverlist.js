@@ -1,7 +1,7 @@
 const Discord = require("discord.js")
 
 exports.run = async (bot, message, args) => {
-  if (message.author.id !== '627717611853185026') return message.channel.sendMessage("<:WrongMark:552116790981951511> This command is only for bot creator!");
+  if (message.author.id !== '597271012979113984') return message.channel.sendMessage("<:WrongMark:552116790981951511> This command is only for bot creator!");
     message.delete();
  const Embeded = require('discord.js').RichEmbed;
 
