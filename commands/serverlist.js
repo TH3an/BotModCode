@@ -5,13 +5,13 @@ exports.run = async (bot, message, args) => {
     message.delete();
  const Embeded = require('discord.js').RichEmbed;
 
-    let number = bot.guilds.array().sort().map((x,i) => `\`${i+1}\` - ${x.toString()} -- (${x.id}) -- **${x.memberCount}** Members`)
+    let number = bot.guilds.cache.array().sort().map((x,i) => `\`${i+1}\` - ${x.toString()} -- (${x.id}) -- **${x.memberCount}** Members`)
     number = chunk(number, 10);
 
     let index = 0;
   const ge = new Embeded() //astaga
   .setColor("#FFD800")
-  .setAuthor(`🌏 | Joined Guild List [${bot.guilds.size} servers]`)
+  .setAuthor(`🌏 | Joined Guild List [${bot.guilds.cache.size} servers]`)
   .setDescription(number[index].join('\n'))
   .setFooter(`Page ${index+1} of ${number.length}`)
     const m = await message.channel.send(ge);
