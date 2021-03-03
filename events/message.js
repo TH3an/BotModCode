@@ -23,7 +23,7 @@ module.exports = (client, message) => {
     
     console.log(`${message.author.name} used ${command} command`)
     let embed = new Discord.RichEmbed()
-    .setAuthor(`${message.author.tag} (${message.author.id}), message.author.displayAvatarURL`)
+    .setAuthor(`${message.author.tag} (${message.author.id})`, message.author.displayAvatarURL)
     .setDescription(`Has used ${command} command in ${message.guild.name}`)
     client.channels.get('798057888428982314').send(embed)
   }
