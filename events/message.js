@@ -1,3 +1,5 @@
+const Discord = require("discord.js");
+
 module.exports = (client, message) => {
   // Ignore all bots
   if (message.author.bot) return;
@@ -20,6 +22,9 @@ module.exports = (client, message) => {
   cmd.run(client, message, args);
     
     console.log(`${message.author.name} used ${command} command`)
-    client.channels.get('803131497401155584').send(`${message.author.name} used ${command} command`)
+    let embed = new Discord.RichEmbed()
+    .setAuthor(`${message.author.tag} (${message.author.id}), message.author.displayAvatarURL`)
+    .setDescription(`Has used ${command} command in ${message.guild.name}`)
+    client.channels.get('803131497401155584').send(embed)
   }
 };
