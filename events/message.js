@@ -13,17 +13,5 @@ module.exports = (client, message) => {
 
   // Grab the command data from the client.commands Enmap
   const cmd = client.commands.get(command);
-
-  // If that command doesn't exist, silently exit and do nothing
-  if (!cmd) return;
-
-  // Run the command
-  if (cmd) {
-  cmd.run(client, message, args);
-    
-    console.log(`${message.author.name} used ${command} command`)
-    let embed = new Discord.RichEmbed()
-    .setAuthor(`${message.author.tag} (${message.author.id})`, message.author.displayAvatarURL)
-    .setDescription(`Has used ${command} command in ${message.guild.name}`)
   }
 };
